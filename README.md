@@ -24,7 +24,7 @@ speedseq var \
 ```
 
 
-## Refer to https://github.com/ekg/freebayes
+> Refer to https://github.com/ekg/freebayes
 
 Assume a pooled sample with a known number of genome copies. Note that this means that each sample identified in the BAM file is assumed to have 32 genome copies. When running with highh --ploidy settings, it may be required to set --use-best-n-alleles to a low number to limit memory usage.
 
