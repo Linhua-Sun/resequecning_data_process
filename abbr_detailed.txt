@@ -1,0 +1,22 @@
+abbreviation	detailed_explanations
+CHROM	chromosome 
+POS	The reference position, with the 1st base having position 1
+REF	reference base(s)
+ALT	alternate base(s)
+DP	Total read depth at the locus
+RO	Reference allele observation count, with partial observations recorded fractionally
+AO	Alternate allele observations, with partial observations recorded fractionally
+ALLELE	Allele (or ALT): In case of multiple ALT fields, this helps to identify which ALT we are referring to
+EFFECT	Annotation (a.k.a. effect): Annotated using Sequence Ontology terms. Multiple effects can be concatenated using '&'
+IMPACT	Putative_impact: A simple estimation of putative impact / deleteriousness : {HIGH, MODERATE, LOW, MODIFIER}
+FEATURE	Which type of feature is in the next field (e.g. transcript, motif, miRNA, etc.).
+FEATUREID	Depending on the annotation, this may be: Transcript ID (preferably using version number), Motif ID, miRNA, ChipSeq peak, Histone mark, etc.
+GENE	Gene NameCommon gene name (HGNC). Optional: use closest gene when the variant is "intergenic".
+GENEID	Gene ID: Gene ID
+BIOTYPE	Transcript biotype:The bare minimum is at least a description on whether the transcript is {Coding, Noncoding}. Whenever possible, use ENSEMBL biotypes.
+HGVS_C	HGVS.c:Variant using HGVS notation (DNA level)
+HGVS_P	HGVS.p:If variant is coding, this field describes the variant using HGVS notation (Protein level). Since transcript ID is already mentioned in feature ID, it may be omitted here.
+
+Refer to these weblinks:
+http://snpeff.sourceforge.net/SnpEff_manual.html#input	
+https://samtools.github.io/hts-specs/VCFv4.2.pdf	
