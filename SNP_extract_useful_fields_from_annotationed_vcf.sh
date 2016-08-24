@@ -7,7 +7,11 @@
 ## If we prefer to have one effect per line, then we can use the vcfEffOnePerLine.pl provided with SnpEff distribution
 
 
-zcat SNP_annotated_mix_test.vcf.gz| \
+## Input file
+input=$1
+ID=$(basename $1 .vcf.gz) 
+
+zcat ${input}| \
 ./snpEff/scripts/vcfEffOnePerLine.pl | \
 java -jar ./snpEff/SnpSift.jar extractFields - \
 CHROM POS REF ALT DP RO AO \
@@ -20,12 +24,12 @@ CHROM POS REF ALT DP RO AO \
 "ANN[*].GENEID" \
 "ANN[*].BIOTYPE" \
 "ANN[*].HGVS_C" \
-"ANN[*].HGVS_P" |sed "s/#//g" > multilines_results.tsv
+"ANN[*].HGVS_P" |sed "s/#//g" > ${ID}_multilines_results.tsv
 
 
 
 
-java -jar ./snpEff/SnpSift.jar extractFields -s "_" -e "." SNP_annotated_mix_test.vcf.gz \
+java -jar ./snpEff/SnpSift.jar extractFields -s "_" -e "." ${input} \
 CHROM POS REF ALT DP RO AO \
 "ANN[*].ALLELE" \
 "ANN[*].EFFECT" \
@@ -36,5 +40,5 @@ CHROM POS REF ALT DP RO AO \
 "ANN[*].GENEID" \
 "ANN[*].BIOTYPE" \
 "ANN[*].HGVS_C" \
-"ANN[*].HGVS_P" |sed "s/#//g" > single_line_results.tsv
+"ANN[*].HGVS_P" |sed "s/#//g" > ${ID}_single_line_results.tsv
 	
